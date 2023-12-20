@@ -49,7 +49,7 @@ def preprocess(data):
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model_new = pickle.load(open('model_nb.pkl','rb'))
 
-st.title("GPT CHECKER")
+st.title("GPT CHECKER (beta)")
 
 input_sms = st.text_area("Enter the Text")
 
@@ -64,7 +64,7 @@ if st.button('Predict'):
     
     # 4. Display
     if result == 1:
-        st.header("AI")
+        st.header("AI Generated")
     else:
-        st.header("Human")
+        st.header("Human Generated")
         
