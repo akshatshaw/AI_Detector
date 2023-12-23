@@ -5,8 +5,8 @@ import numpy as np
 import string
 import nltk
 from nltk.corpus import stopwords
-nltk.download('stopwords') 
-nltk.download('punkt')
+# nltk.download('stopwords') 
+# nltk.download('punkt') 
 stop_words = set(stopwords.words('english'))
 from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
@@ -50,9 +50,10 @@ def preprocess(data):
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model_new = pickle.load(open('model_nb.pkl','rb'))
 
-st.title("GPT CHECKER (beta)")
+st.title("A.I. DETECTOR")
+st.subheader(" ",divider='rainbow')
 
-input_sms = st.text_area("Enter the Text")
+input_sms = st.text_area("Enter the Text", placeholder ="Larger input size has better prediction.")
 
 if st.button('Predict'):
 
@@ -61,11 +62,13 @@ if st.button('Predict'):
     # 2. vectorize
     vector_input = tfidf.transform([transformed_sms])
     # 3. predict
-    result = model_new.predict(vector_input)[0]
-    
+    result = model_new.predict_proba(vector_input)[0]
+    human = round(result[0]*100,2)
+    ai = round(result[1]*100,2)
     # 4. Display
-    if result == 1:
-        st.header("AI Generated")
-    else:
-        st.header("Human Generated")
+    st.caption("Please note that the application is still in development phase so it may sometimes give wrong results.")
+    st.caption("Below are the probabilities of whether the text is AI generated or Human generated.")
+    st.subheader(f"A.I. --> {ai}% ") 
+    st.subheader(f"Human -->  {human}%") 
+  
         
