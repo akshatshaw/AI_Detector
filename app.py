@@ -5,8 +5,8 @@ import numpy as np
 import string
 import nltk
 from nltk.corpus import stopwords
-# nltk.download('stopwords') 
-# nltk.download('punkt') 
+nltk.download('stopwords') 
+nltk.download('punkt') 
 stop_words = set(stopwords.words('english'))
 from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
