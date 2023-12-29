@@ -6,4 +6,4 @@ Here is a screenshot of the app, also i have added the Jupyter notebook here.
 ![image](https://github.com/akshatshaw/GPT_detector/assets/121082244/164eb503-f1f7-4dfe-a469-cca6cdf91f93)
 
 
-If you reading till here then please check out my kaggle profile [https://www.kaggle.com/akshatshaw7](here)
+If you reading till here then please check out my kaggle profile https://www.kaggle.com/akshatshaw7
